@@ -1,6 +1,7 @@
+using HubPro.Domain.Models;
 using Microsoft.AspNetCore.Mvc;
 
-namespace HubPro.Controllers
+namespace HubPro.Hub.API.Controllers
 {
     [ApiController]
     [Route("[controller]")]

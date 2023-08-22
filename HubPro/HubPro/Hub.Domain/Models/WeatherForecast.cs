@@ -1,4 +1,4 @@
-namespace HubPro
+namespace HubPro.Domain.Models
 {
     public class WeatherForecast
     {
