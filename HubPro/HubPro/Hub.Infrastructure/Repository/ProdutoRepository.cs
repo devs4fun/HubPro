@@ -24,16 +24,19 @@ namespace HubPro.Hub.Infrastructure.Repository
         public void Cadastrar(Produto produto)
         {
             _contextHub.Add(produto);
+            _contextHub.SaveChanges();
         }
 
         public void Atualizar(Produto produto)
         {
             _contextHub.Update(produto);
+            _contextHub.SaveChanges();
         }
 
         public void Deletar(int id)
         {
             _contextHub.Remove(id);
+            _contextHub.SaveChanges();
         }
     }
 }
