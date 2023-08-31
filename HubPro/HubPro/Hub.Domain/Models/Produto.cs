@@ -1,7 +1,8 @@
 ﻿namespace HubPro.Hub.Domain.Models
 {
-    public class Produto : Base
+    public class Produto
     {
+        public string Id { get; set; }
         public string Nome { get; set; }
         public decimal Valor { get; set; }
         public double Quantidade { get; set; }
