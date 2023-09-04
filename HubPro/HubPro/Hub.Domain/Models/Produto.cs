@@ -15,7 +15,7 @@
             Valor = default;
             Quantidade = default;
             Ativo = true;
-            DataCadastro = DateTime.Now;
+            DataCadastro = DateTime.UtcNow;
         }
 
         public void AlterarNome(string nome)
