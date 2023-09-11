@@ -19,7 +19,6 @@
   <ItemGroup>
     <Folder Include="Hub.Application\" />
     <Folder Include="Hub.Application\Service\" />
-    <Folder Include="Hub.Infrastructure\Repository\" />
   </ItemGroup>
 
 </Project>

@@ -1,5 +1,6 @@
 ﻿using HubPro.Hub.API.DTOs.Request;
 using HubPro.Hub.Domain.Models;
+using HubPro.Hub.Infrastructure.Repository;
 using Microsoft.AspNetCore.Mvc;
 
 namespace HubPro.Hub.API.Controllers
@@ -9,25 +10,25 @@ namespace HubPro.Hub.API.Controllers
     public class ClienteController : ControllerBase
     {
         [HttpPost]
-        public IActionResult Post(ClienteRequest request)
+        public IActionResult Cadastrar(ClienteRequest request)
         {
             return Ok();
         }
 
         [HttpGet]
-        public IActionResult Get(ClienteRequest request)
+        public IActionResult Buscar(ClienteRequest request)
         {
             return Ok();
         }
 
         [HttpPut]
-        public IActionResult Put(ClienteRequest request)
+        public IActionResult Atualizar(ClienteRequest request)
         {  
             return Ok();
         }
 
         [HttpDelete]
-        public IActionResult Delete(ClienteRequest request)
+        public IActionResult Deletar(ClienteRequest request)
         {
             return Ok();
         }
