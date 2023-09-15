@@ -2,7 +2,7 @@
 {
     public class Produto
     {
-        public string Id { get; set; }
+        public int Id { get; set; }
         public string Nome { get; set; }
         public decimal Valor { get; set; }
         public double Quantidade { get; set; }
@@ -20,7 +20,10 @@
 
         public void AlterarNome(string nome)
         {
-            Nome = nome;
+            if (Nome != nome)
+            {
+                Nome = nome;
+            }
         }
 
         public void AlterarValor(decimal valor)
