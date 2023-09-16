@@ -14,14 +14,14 @@ namespace HubPro.Hub.Application.Service
             _produtoRepository = produtoRepository;
         }
 
-        public void Atualizar(AtualizarProdutoRequest request)
+        public void Atualizar(ProdutoRequest request)
         {
             var produto = BuscarEAplicarAlteracoes(request);
 
             _produtoRepository.Atualizar(produto);
         }
 
-        private Produto BuscarEAplicarAlteracoes(AtualizarProdutoRequest request)
+        private Produto BuscarEAplicarAlteracoes(ProdutoRequest request)
         {
             var produto = BuscarProduto(request.Id);
 

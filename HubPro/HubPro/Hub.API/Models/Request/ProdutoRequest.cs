@@ -1,6 +1,6 @@
 ﻿namespace HubPro.Hub.API.Models.Request
 {
-    public class AtualizarProdutoRequest
+    public class ProdutoRequest
     {
         public int Id { get; set; }
         public string Nome { get; set; }

@@ -4,6 +4,6 @@ namespace HubPro.Hub.Application.Interfaces
 {
     public interface IProdutoService
     {
-        void Atualizar(AtualizarProdutoRequest request);
+        void Atualizar(ProdutoRequest request);
     }
 }

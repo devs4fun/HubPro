@@ -18,7 +18,7 @@ namespace HubPro.Hub.API.Controllers
             return Ok();
         }
 
-        public IActionResult Atualizar(AtualizarProdutoRequest request)
+        public IActionResult Atualizar(ProdutoRequest request)
         {
             _produtoService.Atualizar(request);
             return Ok();
