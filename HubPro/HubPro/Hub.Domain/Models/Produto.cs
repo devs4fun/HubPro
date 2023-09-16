@@ -20,7 +20,10 @@
 
         public void AlterarNome(string nome)
         {
-            Nome = nome;
+            if (Nome != nome)
+            {
+                Nome = nome;
+            }
         }
 
         public void AlterarValor(decimal valor)

@@ -1,4 +1,5 @@
 ﻿using HubPro.Hub.API.Models;
+using HubPro.Hub.API.Models.Request;
 using HubPro.Hub.Application.Interfaces;
 using Microsoft.AspNetCore.Mvc;
 
@@ -11,6 +12,12 @@ namespace HubPro.Hub.API.Controllers
         public ProdutoController(IProdutoService produtoService)
         {
             _produtoService = produtoService;
+        }
+
+        public IActionResult Atualizar(ProdutoRequest request)
+        {
+            _produtoService.Atualizar(request);
+            return Ok();
         }
 
         public IActionResult Cadastrar(ProdutoCadastroRequest request)

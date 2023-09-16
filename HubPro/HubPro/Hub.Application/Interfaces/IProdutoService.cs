@@ -1,4 +1,5 @@
 ﻿using HubPro.Hub.API.Models;
+using HubPro.Hub.API.Models.Request;
 using HubPro.Hub.API.Models.Response;
 using HubPro.Hub.Infrastructure.Interfaces;
 using HubPro.Hub.Infrastructure.Repository;
@@ -12,5 +13,6 @@ namespace HubPro.Hub.Application.Interfaces
         IEnumerable<ProdutoResponse> Buscar();
 
         ProdutoResponse BuscarPorId(int id);
+        void Atualizar(ProdutoRequest request);
     }
 }
