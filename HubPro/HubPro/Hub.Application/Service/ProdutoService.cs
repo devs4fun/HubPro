@@ -13,7 +13,7 @@ namespace HubPro.Hub.Application.Service
             _produtoRepository = produtoRepository;
         }
 
-        public BuscarProdutoResponse Buscar()
+        public IEnumerable<ProdutoResponse> Buscar()
         {
             var produtos = _produtoRepository.BuscarTodos();
 
@@ -32,7 +32,7 @@ namespace HubPro.Hub.Application.Service
                 }).ToList();
             }
 
-            return new BuscarProdutoResponse(produtosResponse);
+            return produtosResponse;
         }
 
         public ProdutoResponse BuscarPorId(int id)

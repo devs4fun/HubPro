@@ -6,7 +6,7 @@ namespace HubPro.Hub.Application.Interfaces
 {
     public interface IProdutoService
     {
-        BuscarProdutoResponse Buscar();
+        IEnumerable<ProdutoResponse> Buscar();
 
         ProdutoResponse BuscarPorId(int id);
     }
