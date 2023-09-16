@@ -1,8 +1,8 @@
 ﻿using HubPro.Hub.Domain.Models;
 
-namespace HubPro.Hub.API.DTOs.Request
+namespace HubPro.Hub.API.Models.Request
 {
-    public class ClienteRequest 
+    public class ClienteRequest
     {
         public int Id { get; set; }
         public string Nome { get; set; }
@@ -17,7 +17,7 @@ namespace HubPro.Hub.API.DTOs.Request
         {
         }
 
-        
+
 
     }
 }
