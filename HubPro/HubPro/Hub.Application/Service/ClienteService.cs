@@ -17,7 +17,7 @@ namespace HubPro.Hub.Application.Service
         }
         public void Cadastrar(ClienteRequest request)
         {
-            Cliente cliente = new(request.Nome, request.Documento, request.Email, request.Celular, request.Aniversario, request.DataCadastro, request.Endereco);
+            Cliente cliente = new (request.Nome, request.Documento, request.Email, request.Celular, request.Aniversario, request.DataCadastro, request.Endereco);
 
             var clienteDoBanco = this.Buscar(cliente.Celular);
 
@@ -35,7 +35,7 @@ namespace HubPro.Hub.Application.Service
 
             if (cliente == null)
             {
-                throw new Exception(message: "O Cliente não foi encontrado");
+                return response;
             }
 
             response = new ClienteResponse()
@@ -52,6 +52,32 @@ namespace HubPro.Hub.Application.Service
 
             return response;
 
+        }
+
+        public void Atualizar(ClienteRequest clienteRequest)
+        {
+            var clienteDoBanco = _repository.Buscar(clienteRequest.Celular);
+
+            if(clienteDoBanco == null) 
+            {
+                throw new Exception(message: "O Cliente não foi encontrado para atualizar");
+            }
+
+            clienteDoBanco.Nome = clienteRequest.Nome;
+            clienteDoBanco.Documento = clienteRequest.Documento;
+            clienteDoBanco.Email = clienteRequest.Email;
+            clienteDoBanco.Celular = clienteRequest.Celular;
+            clienteDoBanco.Aniversario = clienteRequest.Aniversario;
+            clienteDoBanco.Endereco = new Endereco();
+            clienteDoBanco.Endereco.Rua = clienteRequest.Endereco.Rua;
+            clienteDoBanco.Endereco.Bairro = clienteRequest.Endereco.Bairro;
+            clienteDoBanco.Endereco.Numero = clienteRequest.Endereco.Numero;
+            clienteDoBanco.Endereco.Estado = clienteRequest.Endereco.Estado;
+            clienteDoBanco.Endereco.Cep = clienteRequest.Endereco.Cep;
+            clienteDoBanco.Endereco.Complemento = clienteRequest.Endereco.Complemento;
+            clienteDoBanco.Endereco.Observacoes = clienteRequest.Endereco.Observacoes;
+
+            _repository.Atualizar(clienteDoBanco);
         }
     }
 }

@@ -31,13 +31,19 @@ namespace HubPro.Hub.API.Controllers
             }
 
             var cliente = _clienteService.Buscar(request);
+            if(cliente == null)
+            {
+                return BadRequest("Cliente não encontrado");
+            }
 
             return Ok(cliente);
         }
 
         [HttpPut]
         public IActionResult Atualizar(ClienteRequest request)
-        {  
+        {
+            _clienteService.Atualizar(request);
+
             return Ok();
         }
 

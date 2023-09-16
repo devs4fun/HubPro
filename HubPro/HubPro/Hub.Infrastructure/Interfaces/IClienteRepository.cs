@@ -6,5 +6,6 @@ namespace HubPro.Hub.Infrastructure.Interfaces
     {
         void Cadastrar(Cliente cliente);
         Cliente Buscar(string celular);
+        void Atualizar(Cliente cliente);
     }
 }
