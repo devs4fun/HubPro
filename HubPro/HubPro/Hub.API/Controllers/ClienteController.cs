@@ -9,6 +9,8 @@ namespace HubPro.Hub.API.Controllers
     [Route("api/[Controller]")]
     public class ClienteController : ControllerBase
     {
+        //IClientService _clientService;
+
         [HttpPost]
         public IActionResult Cadastrar(ClienteRequest request)
         {
