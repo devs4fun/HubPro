@@ -2,9 +2,9 @@
 {
     public class BuscarProdutoResponse
     {
-        public List<TodosProdutosResponse> Produtos { get; set; }
+        public List<ProdutoResponse> Produtos { get; set; }
 
-        public BuscarProdutoResponse(List<TodosProdutosResponse> produtos)
+        public BuscarProdutoResponse(List<ProdutoResponse> produtos)
         {
             Produtos = produtos;
         }

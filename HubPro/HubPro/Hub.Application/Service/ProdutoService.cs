@@ -17,11 +17,11 @@ namespace HubPro.Hub.Application.Service
         {
             var produtos = _produtoRepository.BuscarTodos();
 
-            var produtosResponse = new List<TodosProdutosResponse>();
+            var produtosResponse = new List<ProdutoResponse>();
 
             if (produtos.Any())
             {
-                produtosResponse = produtos.Select(x => new TodosProdutosResponse
+                produtosResponse = produtos.Select(x => new ProdutoResponse
                 {
                     Id = x.Id,
                     Nome = x.Nome,
@@ -33,13 +33,13 @@ namespace HubPro.Hub.Application.Service
             }
             else
             {
-                produtosResponse = new List<TodosProdutosResponse>();
+                produtosResponse = new List<ProdutoResponse>();
             }
 
             return new BuscarProdutoResponse(produtosResponse);
         }
 
-        public ProdutoPorIdResponse BuscarPorId(int id)
+        public ProdutoResponse BuscarPorId(int id)
         {
             if (id <= 0)
             {
@@ -54,7 +54,7 @@ namespace HubPro.Hub.Application.Service
             }
             else
             {
-                return new ProdutoPorIdResponse
+                return new ProdutoResponse
                 {
                     Id = produto.Id,
                     Nome = produto.Nome,

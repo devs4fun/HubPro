@@ -8,6 +8,6 @@ namespace HubPro.Hub.Application.Interfaces
     {
         BuscarProdutoResponse Buscar();
 
-        ProdutoPorIdResponse BuscarPorId(int id);
+        ProdutoResponse BuscarPorId(int id);
     }
 }

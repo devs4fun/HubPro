@@ -1,6 +1,6 @@
 ﻿namespace HubPro.Hub.API.Models.Response
 {
-    public class ProdutoPorIdResponse
+    public class ProdutoResponse
     {
         public int Id { get; set; }
         public string Nome { get; set; }
