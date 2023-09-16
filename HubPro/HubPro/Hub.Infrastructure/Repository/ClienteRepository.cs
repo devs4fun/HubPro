@@ -1,5 +1,4 @@
-﻿using HubPro.Hub.API.DTOs.Request;
-using HubPro.Hub.Domain.Models;
+﻿using HubPro.Hub.Domain.Models;
 using HubPro.Hub.Infrastructure.Interfaces;
 using Microsoft.AspNetCore.Mvc;
 
@@ -23,7 +22,5 @@ namespace HubPro.Hub.Infrastructure.Repository
             _contextHub.Add(cliente);
             _contextHub.SaveChanges();
         }
-    
-
     }
 }

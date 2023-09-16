@@ -1,6 +1,6 @@
+using HubPro.Bootstrap;
 using HubPro.Hub.Application.Interfaces;
 using HubPro.Hub.Application.Service;
-using HubPro.Hub.Infrastructure;
 using HubPro.Hub.Infrastructure.Interfaces;
 using HubPro.Hub.Infrastructure.Repository;
 
@@ -13,12 +13,7 @@ builder.Services.AddControllers();
 builder.Services.AddEndpointsApiExplorer();
 builder.Services.AddSwaggerGen();
 
-
-builder.Services.AddScoped<IClienteRepository, ClienteRepository>();
-builder.Services.AddScoped<IProdutoRepository, ProdutoRepository>();
-builder.Services.AddScoped<IProdutoService, ProdutoService>();
-builder.Services.AddScoped<IClienteService, ClienteService>();
-builder.Services.AddScoped<ContextHub>();
+builder.Services.AdicionarDependencias();
 
 var app = builder.Build();
 

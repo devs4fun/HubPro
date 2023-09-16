@@ -9,6 +9,8 @@
         public bool Ativo { get; private set; }
         public DateTime DataCadastro { get; private set; }
 
+        public Produto() { }
+
         public Produto(string nome, decimal valor = 0, double quantidade = 0, bool ativo = true)
         {
             Nome = nome;
@@ -20,7 +22,10 @@
 
         public void AlterarNome(string nome)
         {
-            Nome = nome;
+            if (Nome != nome)
+            {
+                Nome = nome;
+            }
         }
 
         public void AlterarValor(decimal valor)

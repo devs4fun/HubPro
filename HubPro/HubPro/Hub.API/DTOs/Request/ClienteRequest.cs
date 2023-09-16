@@ -3,7 +3,7 @@ using System.ComponentModel.DataAnnotations;
 
 namespace HubPro.Hub.API.DTOs.Request
 {
-    public class ClienteRequest 
+    public class ClienteRequest
     {
         public int Id { get; set; }
         [Required]
