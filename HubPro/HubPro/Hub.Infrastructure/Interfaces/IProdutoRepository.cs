@@ -6,7 +6,7 @@ namespace HubPro.Hub.Infrastructure.Interfaces
     {
         IEnumerable<Produto> BuscarTodos();
 
-        Produto? BuscarPorId(int id);
+        Produto BuscarPorId(int id);
 
         void Cadastrar(Produto produto);
 

@@ -1,16 +1,13 @@
-﻿
-using HubPro.Hub.Domain.ErroModels;
-
-namespace HubPro.Hub.Domain.Models
+﻿namespace HubPro.Hub.Domain.Models
 {
     public class Produto
     {
         public int Id { get; set; }
-        public string Nome { get; set; }
-        public decimal Valor { get; set; }
-        public double Quantidade { get; set; }
-        public bool Ativo { get; set; }
-        public DateTime DataCadastro { get; set; }
+        public string Nome { get; private set; }
+        public decimal Valor { get; private set; }
+        public double Quantidade { get; private set; }
+        public bool Ativo { get; private set; }
+        public DateTime DataCadastro { get; private set; }
 
         public Produto(string nome, decimal valor = 0, double quantidade = 0, bool ativo = true)
         {
