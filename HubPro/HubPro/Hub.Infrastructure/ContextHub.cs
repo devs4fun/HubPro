@@ -7,7 +7,7 @@ namespace HubPro.Hub.Infrastructure
     {
         public DbSet<Cliente> Cliente { get; set; }
         public DbSet<Produto> Produtos { get; set; }
-        
+
         protected override void OnConfiguring(DbContextOptionsBuilder dbContextOptionsBuilder)
         {
             dbContextOptionsBuilder.UseSqlServer("Server=(localdb)\\mssqllocaldb;Database=HubDB;Trusted_Connection=true;");
