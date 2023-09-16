@@ -9,5 +9,6 @@ namespace HubPro.Hub.Application.Interfaces
         void Cadastrar(ClienteRequest clienteRequest);
         ClienteResponse Buscar(string celular);
         void Atualizar(ClienteRequest clienteRequest);
+        void Deletar(string id);
     }
 }

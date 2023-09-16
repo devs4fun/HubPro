@@ -48,8 +48,9 @@ namespace HubPro.Hub.API.Controllers
         }
 
         [HttpDelete]
-        public IActionResult Deletar(ClienteRequest request)
+        public IActionResult Deletar(string id)
         {
+            _clienteService.Deletar(id);
             return Ok();
         }
 

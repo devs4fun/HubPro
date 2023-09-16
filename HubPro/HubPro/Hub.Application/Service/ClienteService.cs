@@ -79,5 +79,17 @@ namespace HubPro.Hub.Application.Service
 
             _repository.Atualizar(clienteDoBanco);
         }
+
+        public void Deletar(string id)
+        {
+            var clienteBanco = _repository.Buscar(id);
+
+            if(clienteBanco == null)
+            {
+                throw new Exception(message: "O Cliente não foi encontrado para deletar");
+            }
+
+            _repository.Deletar(clienteBanco);
+        }
     }
 }
