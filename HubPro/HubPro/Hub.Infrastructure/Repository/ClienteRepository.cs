@@ -12,15 +12,17 @@ namespace HubPro.Hub.Infrastructure.Repository
             _contextHub = contextHub;
         }
 
-        public Cliente BuscarClientePorCelular(string celular)
+        public Cliente Buscar(string request)
         {
-            return _contextHub.Cliente.FirstOrDefault(x => x.Celular == celular);
+            int.TryParse(request, out int id);
+
+            return _contextHub.Cliente.FirstOrDefault(x => x.Celular == request || x.Nome == request || x.Id == id);
         }
 
         public void Cadastrar(Cliente cliente)
         {
             _contextHub.Add(cliente);
-            _contextHub.SaveChanges();
+            _contextHub.SaveChanges();  
         }
     }
 }
