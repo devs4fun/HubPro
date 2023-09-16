@@ -17,6 +17,7 @@ namespace HubPro.Hub.API.Controllers
         }
 
         [HttpGet]
+        [Route("Buscar")]
         public IActionResult Buscar()
         {
             var produtos = _produtoService.Buscar();
@@ -25,6 +26,7 @@ namespace HubPro.Hub.API.Controllers
         }
 
         [HttpGet]
+        [Route("BuscarPorId/{id}")]
         public IActionResult BuscarPorId(int id)
         {
             var produto = _produtoService.BuscarPorId(id);
@@ -33,6 +35,7 @@ namespace HubPro.Hub.API.Controllers
         }
 
         [HttpPost]
+        [Route("Cadastrar")]
         public IActionResult Cadastrar(ProdutoCadastroRequest request)
         {
             _produtoService.Cadastrar(request);
@@ -55,6 +58,7 @@ namespace HubPro.Hub.API.Controllers
         }
 
         [HttpPost]
+        [Route("DesativarProduto")]
         public IActionResult DesativarProduto(int id)
         {
             _produtoService.DesativarProduto(id);

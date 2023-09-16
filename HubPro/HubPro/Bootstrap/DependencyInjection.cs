@@ -13,7 +13,9 @@ namespace HubPro.Bootstrap
             services.AddScoped<IClienteRepository, ClienteRepository>();
             services.AddScoped<IProdutoRepository, ProdutoRepository>();
             services.AddScoped<IProdutoService, ProdutoService>();
+            services.AddScoped<IClienteService, ClienteService>();
             services.AddScoped<ContextHub>();
+
         }
     }
 }
