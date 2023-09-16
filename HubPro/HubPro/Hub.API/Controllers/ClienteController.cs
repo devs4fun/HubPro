@@ -23,9 +23,16 @@ namespace HubPro.Hub.API.Controllers
         }
 
         [HttpGet]
-        public IActionResult Buscar(ClienteRequest request)
+        public IActionResult Buscar(string request)
         {
-            return Ok();
+            if (request == null)
+            {
+                return BadRequest();
+            }
+
+            var cliente = _clienteService.Buscar(request);
+
+            return Ok(cliente);
         }
 
         [HttpPut]
