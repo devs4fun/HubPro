@@ -5,7 +5,7 @@ namespace HubPro.Hub.Infrastructure.Repository
 {
     public class ProdutoRepository : IProdutoRepository
     {
-        readonly ContextHub _contextHub;
+        private readonly ContextHub _contextHub;
         public ProdutoRepository(ContextHub contextHub)
         {
             _contextHub = contextHub;

@@ -13,6 +13,11 @@ namespace HubPro.Hub.Infrastructure.Repository
             _contextHub = contextHub;
         }
 
+        public Cliente BuscarClientePorCelular(string celular)
+        {
+            return _contextHub.Cliente.FirstOrDefault(x => x.Celular == celular);
+        }
+
         public void Cadastrar(Cliente cliente)
         {
             _contextHub.Add(cliente);

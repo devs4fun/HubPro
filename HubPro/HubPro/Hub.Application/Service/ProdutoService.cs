@@ -1,11 +1,12 @@
 ﻿using HubPro.Hub.API.Models;
 using HubPro.Hub.API.Models.Response;
+using HubPro.Hub.Application.Interfaces;
 using HubPro.Hub.Domain.Models;
 using HubPro.Hub.Infrastructure.Interfaces;
 
 namespace HubPro.Hub.Application.Service
 {
-    public class ProdutoService
+    public class ProdutoService : IProdutoService
     {
         private readonly IProdutoRepository _produtoRepository;
 

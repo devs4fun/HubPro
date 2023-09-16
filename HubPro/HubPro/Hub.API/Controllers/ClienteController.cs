@@ -1,7 +1,6 @@
 ﻿using HubPro.Hub.API.DTOs.Request;
-using HubPro.Hub.Domain.Models;
-using HubPro.Hub.Infrastructure.Repository;
 using Microsoft.AspNetCore.Mvc;
+using HubPro.Hub.Application.Interfaces;
 
 namespace HubPro.Hub.API.Controllers
 {
@@ -9,11 +8,17 @@ namespace HubPro.Hub.API.Controllers
     [Route("api/[Controller]")]
     public class ClienteController : ControllerBase
     {
-        //IClientService _clientService;
+        private readonly IClienteService _clienteService;
+
+        public ClienteController(IClienteService clienteService)
+        {
+            _clienteService = clienteService;
+        }
 
         [HttpPost]
         public IActionResult Cadastrar(ClienteRequest request)
         {
+            _clienteService.Cadastrar(request);
             return Ok();
         }
 
