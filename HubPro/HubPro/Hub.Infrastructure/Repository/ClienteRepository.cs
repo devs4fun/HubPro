@@ -33,5 +33,11 @@ namespace HubPro.Hub.Infrastructure.Repository
             _contextHub.Add(cliente);
             _contextHub.SaveChanges();  
         }
+
+        public void Deletar(Cliente cliente)
+        {
+            _contextHub.Cliente.Remove(cliente);
+            _contextHub.SaveChanges();
+        }
     }
 }
