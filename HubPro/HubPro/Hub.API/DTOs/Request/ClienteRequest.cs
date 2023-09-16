@@ -2,7 +2,7 @@
 
 namespace HubPro.Hub.API.DTOs.Request
 {
-    public class ClienteRequest 
+    public class ClienteRequest
     {
         public int Id { get; set; }
         public string Nome { get; set; }
@@ -17,7 +17,7 @@ namespace HubPro.Hub.API.DTOs.Request
         {
         }
 
-        
+
 
     }
 }

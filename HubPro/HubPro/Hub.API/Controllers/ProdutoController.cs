@@ -1,10 +1,12 @@
-﻿using HubPro.Hub.API.Models;
-using HubPro.Hub.API.Models.Request;
+﻿using HubPro.Hub.API.DTOs;
+using HubPro.Hub.API.DTOs.Request;
 using HubPro.Hub.Application.Interfaces;
 using Microsoft.AspNetCore.Mvc;
 
 namespace HubPro.Hub.API.Controllers
 {
+    [ApiController]
+    [Route("api/[Controller]")]
     public class ProdutoController : Controller
     {
         private readonly IProdutoService _produtoService;
@@ -14,19 +16,7 @@ namespace HubPro.Hub.API.Controllers
             _produtoService = produtoService;
         }
 
-        public IActionResult Atualizar(ProdutoRequest request)
-        {
-            _produtoService.Atualizar(request);
-            return Ok();
-        }
-
-        public IActionResult Cadastrar(ProdutoCadastroRequest request)
-        {
-            _produtoService.Cadastrar(request);
-
-            return Ok();
-        }
-
+        [HttpGet]
         public IActionResult Buscar()
         {
             var produtos = _produtoService.Buscar();
@@ -34,11 +24,41 @@ namespace HubPro.Hub.API.Controllers
             return Ok(produtos);
         }
 
+        [HttpGet]
         public IActionResult BuscarPorId(int id)
         {
             var produto = _produtoService.BuscarPorId(id);
 
             return Ok(produto);
+        }
+
+        [HttpPost]
+        public IActionResult Cadastrar(ProdutoCadastroRequest request)
+        {
+            _produtoService.Cadastrar(request);
+
+            return Ok();
+        }
+
+        [HttpPut]
+        public IActionResult Atualizar(ProdutoRequest request)
+        {
+            _produtoService.Atualizar(request);
+            return Ok();
+        }
+
+        [HttpDelete]
+        public IActionResult Excluir(int id)
+        {
+            _produtoService.Excluir(id);
+            return Ok();
+        }
+
+        [HttpPost]
+        public IActionResult DesativarProduto(int id)
+        {
+            _produtoService.DesativarProduto(id);
+            return Ok();
         }
     }
 }
