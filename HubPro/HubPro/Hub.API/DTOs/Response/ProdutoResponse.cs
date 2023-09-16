@@ -1,4 +1,4 @@
-﻿namespace HubPro.Hub.API.Models.Response
+﻿namespace HubPro.Hub.API.DTOs.Response
 {
     public class ProdutoResponse
     {

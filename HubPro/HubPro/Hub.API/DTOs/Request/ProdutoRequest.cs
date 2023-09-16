@@ -1,7 +1,8 @@
-﻿namespace HubPro.Hub.API.Models
+﻿namespace HubPro.Hub.API.DTOs.Request
 {
-    public class ProdutoCadastroRequest
+    public class ProdutoRequest
     {
+        public int Id { get; set; }
         public string Nome { get; set; }
         public decimal Valor { get; set; }
         public double Quantidade { get; set; }

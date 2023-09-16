@@ -1,5 +1,5 @@
-﻿using HubPro.Hub.API.Models;
-using HubPro.Hub.API.Models.Request;
+﻿using HubPro.Hub.API.DTOs;
+using HubPro.Hub.API.DTOs.Request;
 using HubPro.Hub.Application.Interfaces;
 using Microsoft.AspNetCore.Mvc;
 

@@ -1,4 +1,4 @@
-﻿using HubPro.Hub.API.Models.Request;
+﻿using HubPro.Hub.API.DTOs.Request;
 using HubPro.Hub.Domain.Models;
 using HubPro.Hub.Infrastructure.Repository;
 using Microsoft.AspNetCore.Mvc;

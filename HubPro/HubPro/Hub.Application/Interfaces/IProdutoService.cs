@@ -1,6 +1,6 @@
-﻿using HubPro.Hub.API.Models;
-using HubPro.Hub.API.Models.Request;
-using HubPro.Hub.API.Models.Response;
+﻿using HubPro.Hub.API.DTOs;
+using HubPro.Hub.API.DTOs.Request;
+using HubPro.Hub.API.DTOs.Response;
 using HubPro.Hub.Infrastructure.Interfaces;
 using HubPro.Hub.Infrastructure.Repository;
 

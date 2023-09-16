@@ -1,6 +1,6 @@
 ﻿using HubPro.Hub.Domain.Models;
 
-namespace HubPro.Hub.API.Models.Request
+namespace HubPro.Hub.API.DTOs.Request
 {
     public class ClienteRequest
     {
