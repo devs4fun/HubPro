@@ -18,7 +18,7 @@ namespace HubPro.Hub.Infrastructure.Repository
 
         public Produto? BuscarPorId(int id)
         {
-            return _contextHub.Produtos.FirstOrDefault(p => p.id == id);
+            return _contextHub.Produtos.FirstOrDefault(p => p.Id == id);
         }
 
         public void Cadastrar(Produto produto)
