@@ -3,18 +3,18 @@
     public class Produto
     {
         public int Id { get; set; }
-        public string Nome { get; set; }
-        public decimal Valor { get; set; }
-        public double Quantidade { get; set; }
-        public bool Ativo { get; set; }
-        public DateTime DataCadastro { get; set; }
+        public string Nome { get; private set; }
+        public decimal Valor { get; private set; }
+        public double Quantidade { get; private set; }
+        public bool Ativo { get; private set; }
+        public DateTime DataCadastro { get; private set; }
 
-        public Produto(string nome)
+        public Produto(string nome, decimal valor = 0, double quantidade = 0, bool ativo = true)
         {
             Nome = nome;
-            Valor = default;
-            Quantidade = default;
-            Ativo = true;
+            Valor = valor;
+            Quantidade = quantidade;
+            Ativo = ativo;
             DataCadastro = DateTime.UtcNow;
         }
 
@@ -50,6 +50,24 @@
         public void DesativarProduto()
         {
             Ativo = false;
+        }
+
+        public void Validar()
+        {
+            if (string.IsNullOrWhiteSpace(Nome))
+            {
+                throw new Exception(message: "O produto deve ter um nome.");
+            }
+
+            if (Valor < 0)
+            {
+                throw new Exception(message: "Valor do produto não pode ser menor que zero.");
+            }
+
+            if (Quantidade < 0)
+            {
+                throw new Exception(message: "Quantidade de produtos não pode ser menor que zero.");
+            }
         }
     }
 }
