@@ -31,10 +31,6 @@ namespace HubPro.Hub.Application.Service
                     DataCadastro = x.DataCadastro
                 }).ToList();
             }
-            else
-            {
-                produtosResponse = new List<ProdutoResponse>();
-            }
 
             return new BuscarProdutoResponse(produtosResponse);
         }
