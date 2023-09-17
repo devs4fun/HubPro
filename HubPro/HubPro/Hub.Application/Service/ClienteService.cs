@@ -91,5 +91,27 @@ namespace HubPro.Hub.Application.Service
 
             _repository.Deletar(clienteBanco);
         }
+
+        public IList<ClienteResponse> BuscarTudo(int pg)
+        {
+            var clientes = _repository.BuscarTudo(pg);
+            List<ClienteResponse> ListaDeClientes = null;
+
+            if (clientes.Any())
+            {
+                ListaDeClientes = clientes.Select(x => new ClienteResponse
+                {
+                    Id = x.Id,
+                    Nome = x.Nome,
+                    Documento = x.Documento,
+                    Email = x.Email,
+                    Celular = x.Celular,
+                    Aniversario = x.Aniversario,
+                    Endereco = x.Endereco,
+                }).ToList();
+            }
+
+            return ListaDeClientes;
+        }
     }
 }

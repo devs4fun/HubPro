@@ -28,6 +28,17 @@ namespace HubPro.Hub.Infrastructure.Repository
                 .FirstOrDefault(x => x.Celular == request || x.Nome == request || x.Id == id);
         }
 
+        public IEnumerable<Cliente> BuscarTudo(int pg)
+        {
+            int itensPorPagina = 10; // Número de itens por página
+
+            return _contextHub.Cliente
+                .OrderBy(c => c.Nome)
+                .Skip((pg - 1) * itensPorPagina)
+                .Take(itensPorPagina)
+                .Include(c => c.Endereco);
+        }
+
         public void Cadastrar(Cliente cliente)
         {
             _contextHub.Add(cliente);

@@ -10,5 +10,6 @@ namespace HubPro.Hub.Application.Interfaces
         ClienteResponse Buscar(string celular);
         void Atualizar(ClienteRequest clienteRequest);
         void Deletar(string id);
+        IList<ClienteResponse> BuscarTudo(int pg);
     }
 }
