@@ -23,7 +23,8 @@ namespace HubPro.Hub.API.Controllers
         }
 
         [HttpGet]
-        public IActionResult Buscar(string request)
+        [Route("BuscarPorIdentificador")]
+        public IActionResult BuscarPorIdentificador(string request)
         {
             if (request == null)
             {
@@ -37,6 +38,19 @@ namespace HubPro.Hub.API.Controllers
             }
 
             return Ok(cliente);
+        }
+
+        [HttpGet]
+        [Route("BuscarVarios")]
+        public IActionResult BuscarVarios(int pg)
+        {
+            var clientes = _clienteService.BuscarTudo(pg);
+            if (clientes == null)
+            {
+                return BadRequest("Clientes não encontrados");
+            }
+
+            return Ok(clientes);
         }
 
         [HttpPut]
