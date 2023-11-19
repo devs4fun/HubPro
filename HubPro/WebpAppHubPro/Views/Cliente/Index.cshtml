@@ -1,0 +1,144 @@
+﻿@model List<HubPro.Hub.API.DTOs.Request.ClienteRequest>
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <title>Lista de Clientes</title>
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css">
+    <style>
+        body {
+            background-color: #f8f9fa;
+            padding: 20px;
+        }
+
+        .container {
+            max-width: 800px;
+            margin: 0 auto;
+            background-color: white;
+            padding: 20px;
+            border-radius: 8px;
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+            margin-top: 50px;
+        }
+
+        .cliente-card {
+            border: 1px solid #dee2e6;
+            border-radius: 4px;
+            margin: 10px;
+            padding: 15px;
+        }
+
+        .cliente-info {
+            margin-bottom: 10px;
+        }
+
+        .pagination {
+            margin-top: 20px;
+        }
+    </style>
+</head>
+<body>
+
+    <div class="container">
+
+        <!-- Formulário de Busca -->
+        <form asp-controller="Cliente" asp-action="Search" method="get" class="mb-4">
+            <div class="form-row align-items-center">
+                <div class="col-auto">
+                    <label for="txtBusca" class="sr-only">Termo de Busca</label>
+                    <input type="text" class="form-control mb-2" id="txtBusca" name="busca" placeholder="Digite o termo de busca">
+                </div>
+                <div class="col-auto">
+                    <button type="submit" class="btn btn-primary mb-2">Buscar</button>
+                </div>
+            </div>
+        </form>
+
+        <h2 class="text-center mb-4">Lista de Clientes</h2>
+
+        <div class="row">
+            @foreach (var cliente in Model)
+            {
+                <div class="col-md-4">
+                    <div class="cliente-card">
+                        <h4>@cliente.Nome</h4>
+                        <div class="cliente-info">
+                            <strong>Documento:</strong> @cliente.Documento<br />
+                            <strong>Email:</strong> @cliente.Email<br />
+                            <strong>Celular:</strong> @cliente.Celular<br />
+                            <strong>Aniversário:</strong> @cliente.Aniversario.ToString("dd/MM/yyyy")<br />
+                        </div>
+                        <div class="cliente-info">
+                            <strong>Endereço:</strong><br />
+                            @cliente.Endereco.Rua, @cliente.Endereco.Numero<br />
+                            @cliente.Endereco.Bairro<br />
+                            @cliente.Endereco.Estado, @cliente.Endereco.Cep<br />
+                            @cliente.Endereco.Complemento<br />
+                            @cliente.Endereco.Observacoes<br />
+                        </div>
+
+                        <!-- Formulário para deletar o cliente -->
+                        <form asp-controller="Cliente" asp-action="Delete" method="post">
+                            <input type="hidden" name="clienteId" value="@cliente.Id" />
+                            <button type="submit" class="btn btn-danger">Deletar</button>
+                        </form>
+
+                        <!-- Botão para editar o cliente -->
+                        <a asp-controller="Cliente" asp-action="Edit" asp-route-id="@cliente.Id" class="btn btn-primary">Editar</a>
+                    </div>
+                </div>
+            }
+        </div>
+
+        <!-- Adicionar botões de próxima e anterior -->
+        <div class="pagination">
+            <button id="btnAnterior" class="btn btn-secondary">Anterior</button>
+            <button id="btnProximo" class="btn btn-secondary">Próximo</button>
+        </div>
+    </div>
+
+    <!-- Adicionar jQuery (se ainda não estiver incluído no seu projeto) -->
+    <script src="https://code.jquery.com/jquery-3.6.4.min.js"></script>
+
+    <script>
+        $(document).ready(function () {
+            var paginaAtual = 1;
+
+            // Função para carregar a próxima página
+            function carregarProximaPagina() {
+                paginaAtual++;
+                carregarPagina(paginaAtual);
+            }
+
+            // Função para carregar a página anterior
+            function carregarPaginaAnterior() {
+                if (paginaAtual > 1) {
+                    paginaAtual--;
+                    carregarPagina(paginaAtual);
+                }
+            }
+
+            // Função para carregar uma página específica
+            function carregarPagina(pagina) {
+                // Adapte o URL conforme necessário
+                var url = "/Cliente/Index?pg=" + pagina;
+
+                $.get(url, function (data) {
+                    // Atualiza o conteúdo da lista de clientes
+                    $(".row").html(data);
+
+                    // Atualiza os botões de próxima e anterior
+                    $("#btnAnterior").prop("disabled", pagina === 1);
+                    // Você pode ajustar este valor conforme a lógica da sua API
+                    $("#btnProximo").prop("disabled", data.length === 0);
+                });
+            }
+
+            // Vincula os eventos aos botões
+            $("#btnProximo").click(carregarProximaPagina);
+            $("#btnAnterior").click(carregarPaginaAnterior);
+        });
+    </script>
+
+</body>
+</html>
