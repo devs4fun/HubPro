@@ -33,9 +33,9 @@ namespace HubPro.Hub.Infrastructure.Repository
             _contextHub.SaveChanges();
         }
 
-        public void Deletar(int id)
+        public void Deletar(Produto produto)
         {
-            _contextHub.Remove(id);
+            _contextHub.Remove(produto);
             _contextHub.SaveChanges();
         }
     }

@@ -51,7 +51,8 @@ namespace HubPro.Hub.API.Controllers
         }
 
         [HttpDelete]
-        public IActionResult Excluir(int id)
+        [Route("delete/{id}")]
+        public IActionResult Excluir([FromRoute]int id)
         {
             _produtoService.Excluir(id);
             return Ok();

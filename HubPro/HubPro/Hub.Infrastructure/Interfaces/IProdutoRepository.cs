@@ -12,6 +12,6 @@ namespace HubPro.Hub.Infrastructure.Interfaces
 
         void Atualizar(Produto produto);
 
-        void Deletar(int id);
+        void Deletar(Produto produto);
     }
 }

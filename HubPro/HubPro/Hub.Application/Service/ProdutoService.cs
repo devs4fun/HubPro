@@ -98,7 +98,9 @@ namespace HubPro.Hub.Application.Service
         {
             if (id > 0)
             {
-                _produtoRepository.Deletar(id);
+                var produto = this.BuscarProduto(id);
+                if (produto != null)
+                    _produtoRepository.Deletar(produto);
             }
         }
 
