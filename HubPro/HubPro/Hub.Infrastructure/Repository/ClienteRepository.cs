@@ -1,4 +1,5 @@
-﻿using HubPro.Hub.Domain.Models;
+﻿using Azure.Core;
+using HubPro.Hub.Domain.Models;
 using HubPro.Hub.Infrastructure.Interfaces;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.EntityFrameworkCore;
